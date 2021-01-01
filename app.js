@@ -9,7 +9,7 @@ const timestamp = require('./aux-functions/timestamp');
 const generateHash = require('./aux-functions/generateHash');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json());
@@ -86,6 +86,10 @@ MongoClient.connect(URL, { useUnifiedTopology: true }, (err, mongoClient) => {
         console.log(`${timestamp} - Inserted dummy chat on mongodb`);
         res.send("<h1>Inserted dummy chat on mongodb</h1>");
     });
+
+    // app.get('/chat', (req, res) => {
+
+    // });
 
     app.get('/*', (req, res) => {
         res.redirect('/');
